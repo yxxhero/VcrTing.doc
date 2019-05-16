@@ -71,7 +71,7 @@
     `worker_class = 'sync' # 使用gevent模式，还可以使用sync 模式，默认的是sync模式`  
     `workers = multiprocessing.cpu_count()`  
     `threads = multiprocessing.cpu_count()*4`  
-    `loglevel = 'info' # error / info`  
+    `loglevel = 'error' # error / info`  
     `access_log_format = '%(t)s %(p)s %(h)s "%(r)s" %(s)s %(L)s %(b)s %(f)s" "%(a)s"'`  
   
     `accesslog = "/root/Project/gunicorn_access.log"`  
@@ -89,7 +89,7 @@
     `yum -y install nginx`  
     `测试一下: nginx -t`  
 
-2. 保证Nginx 可用性
+2. 保证Nginx 可用性  
     输入  
     `nginx -s reload`
     看看有什么问题，如果 invalid PID number "" 的话，输入  
@@ -100,7 +100,7 @@
 
 3. 书写配置文件  
     只需要把server {} 复制到 /etc/nginx/nginx.conf 文件的 http {} 括号里面就行了，但是要注意80 端口的server{} 只能有一个
-    `
+    >
     worker_processes  1; # 工作进程的个数，可以配置多个
 
     events {
@@ -133,7 +133,7 @@
             }
         }
     }
-`  
+
 
 4. 外网访问  
     保证 gunicorn 开启，保证nginx在监听  
