@@ -1,3 +1,5 @@
+<center><img width = '170' src ="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1967034059,4011926928&fm=11&gp=0.jpg"/></center>
+
 ### 安装 Anaconda3
 1. 先需安装python 安装依赖：  
     `yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make`  
@@ -99,41 +101,32 @@
     注意几个问题：80端口不能被非nginx占用，Nginx配置里面只允许出现一个80监听的server{}。  
 
 3. 书写配置文件  
-    只需要把server {} 复制到 /etc/nginx/nginx.conf 文件的 http {} 括号里面就行了，但是要注意80 端口的server{} 只能有一个  
-    <code>
-    worker_processes  1; # 工作进程的个数，可以配置多个
+    只需要把server {} 复制到 /etc/nginx/nginx.conf 文件的 http {} 括号里面就行了，但是要注意80 端口的server{} 只能有一个 
 
-    events {
-        worker_connections  1024; # 单个进程最大连接数（最大连接数=连接数*进程数）
-    }
-
-    http {
-        server {
-            listen 80;
-            server_name  backend.svr.szmentor.ltd;
-            charset utf-8;
-            client_max_body_size 200m;
-            access_log  /root/WXBK/nginx-access.log;
-            error_log  /root/WXBK/nginx-err.log;
-            location = /favicon.ico { 
-                access_log off;
-                log_not_found off; 
-            }
-            location /static/ {
-                #静态文件如js，css的存放目录
-                alias /root/WXBk/Static/;
-            }
-            location / {
-                proxy_pass http://0.0.0.0:8001; # gunicorn 端口
-                proxy_redirect     off;
-                proxy_set_header   Host                 $http_host;
-                proxy_set_header   X-Real-IP            $remote_addr;
-                proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
-                proxy_set_header   X-Forwarded-Proto    $scheme;
-            }
-        }
-    }
-    </code>
+    `server {`  
+    `    listen 80;`  
+    `    server_name  backend.svr.szmentor.ltd;`  
+    `    charset utf-8;`  
+    `    client_max_body_size 200m;`  
+    `    access_log  /root/WXBK/nginx-access.log;`  
+    `    error_log  /root/WXBK/nginx-err.log;`  
+    `    location = /favicon.ico { `  
+    `        access_log off;`  
+    `        log_not_found off; `  
+    `    }`  
+    `    location /static/ {`  
+    `        #静态文件如js，css的存放目录`  
+    `        alias /root/WXBk/Static/;`  
+    `    }`  
+    `    location / {`  
+    `        proxy_pass http://0.0.0.0:8001; # gunicorn 端口`  
+    `        proxy_redirect     off;`  
+    `        proxy_set_header   Host                 $http_host;`  
+    `        proxy_set_header   X-Real-IP            $remote_addr;`  
+    `        proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;`  
+    `        proxy_set_header   X-Forwarded-Proto    $scheme;`  
+    `    }`  
+    `}`  
 
 4. 外网访问  
     保证 gunicorn 开启，保证nginx在监听  
