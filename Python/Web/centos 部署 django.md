@@ -99,8 +99,8 @@
     注意几个问题：80端口不能被非nginx占用，Nginx配置里面只允许出现一个80监听的server{}。  
 
 3. 书写配置文件  
-    只需要把server {} 复制到 /etc/nginx/nginx.conf 文件的 http {} 括号里面就行了，但是要注意80 端口的server{} 只能有一个
-    >
+    只需要把server {} 复制到 /etc/nginx/nginx.conf 文件的 http {} 括号里面就行了，但是要注意80 端口的server{} 只能有一个  
+    <code>
     worker_processes  1; # 工作进程的个数，可以配置多个
 
     events {
@@ -133,7 +133,7 @@
             }
         }
     }
-
+    </code>
 
 4. 外网访问  
     保证 gunicorn 开启，保证nginx在监听  
