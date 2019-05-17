@@ -1,5 +1,5 @@
-<center><img width = '170' src ="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1967034059,4011926928&fm=11&gp=0.jpg"/></center>
-
+<center><img width = '170' src ="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1967034059,4011926928&fm=11&gp=0.jpg"/></center>  
+  
 ### 安装 Anaconda3
 1. 先需安装python 安装依赖：  
     `yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make`  
