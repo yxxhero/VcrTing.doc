@@ -1,4 +1,4 @@
-<img src="https://github.com/VcrTing/VcrTing.doc/blob/master/SAVE/imgs/X/1.jpg?raw=true">
+<img src="https://github.com/VcrTing/VcrTing.doc/blob/master/SAVE/imgs/X/1.jpg?raw=true" width="100%">
 
 ### 安装 Flutter
 1. 先配置环境变量：vim ~/.bash _profile  
@@ -13,7 +13,7 @@
 4. 生效环境变量并且测试flutter环境：  
     生效：source ~/.bash_profile  
     查看隐藏文件：ls -a  
-    测试flutter：
+    测试flutter：flutter doctor
 
 ### 安装 依赖
 1. 下载安装Xcode，到App store 下载安装 Xcode  
@@ -39,3 +39,5 @@
 10. ANdroid Studio 安装 Flutter Plugin，在Preference里面
 
 11. [体验](https://flutterchina.club/get-started/test-drive/#vscode)
+<br/>
+<p align='right'>💗</p>
