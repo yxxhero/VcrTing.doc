@@ -1,4 +1,4 @@
-<img src="https://github.com/VcrTing/VcrTing.doc/blob/master/SAVE/imgs/1680x1080.jpg?raw=true">
+<img src="https://github.com/VcrTing/VcrTing.doc/blob/master/SAVE/imgs/X/1.jpg?raw=true">
 
 ### 安装 Flutter
 1. 先配置环境变量：vim ~/.bash _profile  
