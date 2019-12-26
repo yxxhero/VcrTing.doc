@@ -36,8 +36,11 @@
 
 9. VS Code 安装 flutter 拓展
 
-10. ANdroid Studio 安装 Flutter Plugin，在Preference里面
+10. Android Studio 安装 Flutter Plugin，在Preference里面
 
 11. [体验](https://flutterchina.club/get-started/test-drive/#vscode)
+
+### 连接设备  
+
 <br/>
 <p align='right'>💗</p>
