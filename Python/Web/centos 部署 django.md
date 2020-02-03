@@ -137,6 +137,31 @@
     
     若静态资源 404 错误，Nginx 有错误日志，你去仔细检查错误日志鸭～  
 
+### 稳定运行
+1. 让 gunicorn 后台运行: 在命令前加 nohup
+
+2. 使用 supervisor 稳定运行
+  unbuntu 安装 supervisor : sudo apt-get install supervisor
+  centos 安装 supervisor : yum install supervisor
+  
+3. 写配置：vim /etc/supervisord.d/smstask.ini
+  `[program:smstask]`
+  `command=/root/anaconda3/envs/done/bin/gunicorn -c /root/SMSTask/Twilio Twilio.wsgi:application`
+  `directory=/root/SMSTask/Twilio`
+  `user=root`
+  `autorestart=true`
+  `startretires=3`
+  `stderr_logfile=/root/SMSTask/Twilio/log/supervisor.err.log`
+  `stdout_logfile=/root/SMSTask/Twilio/log/supervisor.out.log`
+
+4. 配置图形化界面
+
+5. Supervisor 命令：
+  supervisorctl reload
+  service supervisor start
+  systemctl enable supervisord （开机自启动）
+  ps -ef|grep supervisord （查看是否存在进程）
+
 ### 完成啦！！！
 <br/>
 <p align='right'>💗</p>
